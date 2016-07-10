@@ -307,6 +307,7 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
         return;
     }
     
+    
     // Calculate expected size
     CGSize expectedLabelSize = [self subLabelSize];
     
@@ -1144,6 +1145,19 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
     self.subLabel.attributedText = attributedText;
     super.attributedText = attributedText;
     [self updateSublabel];
+}
+
+-(void)setThumb:(UIImage *)image withString:(NSString *)string
+{
+    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    attachment.image = image;
+    
+    NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
+    
+    NSMutableAttributedString *attributedText= [[NSMutableAttributedString alloc] initWithString:string];
+    [attributedText appendAttributedString:attachmentString];
+    
+    self.attributedText = attributedText;
 }
 
 - (UIFont *)font {
