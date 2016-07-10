@@ -484,6 +484,7 @@ IB_DESIGNABLE
 
 + (void)controllerLabelsShouldAnimate:(UIViewController *)controller;
 
+-(void)setThumb:(UIImage *)image withString:(NSString *)string;
 
 @end
 
